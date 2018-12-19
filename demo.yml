@@ -67,7 +67,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: docker.io/nmysql
+        image: docker.io/mysql
         ports:
         - containerPort: 3306
           name: mysql
