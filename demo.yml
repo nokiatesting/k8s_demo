@@ -74,15 +74,15 @@ spec:
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: root
+        - name: MYSQL_DATABASE
+          value: testdb
+        - name: MYSQL_USER
+          value: root
+        - name: MYSQL_PASSWORD
+          value: root
         volumeMounts:
         - name: mysql-data
           mountPath: /var/lib/mysql
-        readinessProbe:
-          exec:
-            command: ['/bin/sh', '-c', 'MYSQL_PWD=root mysql -uroot -e "create database if not exists testdb" || exit 1']
-          initialDelaySeconds: 10
-          failureThreshold: 3
-          periodSeconds: 10
       volumes:
       - name: mysql-data
         nfs:
