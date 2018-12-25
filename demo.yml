@@ -80,6 +80,7 @@ spec:
         readinessProbe:
           exec:
             command: ['/bin/sh', '-c', 'MYSQL_PWD=root mysql -uroot -e "create database if not exists testdb" || exit 1']
+          initialDelaySeconds: 10
           failureThreshold: 3
           periodSeconds: 10
       volumes:
